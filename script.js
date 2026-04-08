@@ -1,20 +1,19 @@
-// CUSTOM CURSOR
-const cursor = document.querySelector(".cursor");
-document.addEventListener("mousemove", e => {
-  cursor.style.top = e.clientY + "px";
-  cursor.style.left = e.clientX + "px";
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from(".hero-text", {
+  y: 100,
+  opacity: 0,
+  duration: 1
 });
 
-// GSAP ANIMATION
-gsap.to(".animate", {
-  opacity: 1,
-  y: 0,
-  duration: 1,
-  stagger: 0.2
+gsap.from(".work-item", {
+  scrollTrigger: ".work",
+  y: 100,
+  opacity: 0,
+  stagger: 0.3
 });
 
-// VIDEO HOVER PLAY
-document.querySelectorAll(".card video").forEach(video => {
-  video.addEventListener("mouseenter", () => video.play());
-  video.addEventListener("mouseleave", () => video.pause());
+document.querySelectorAll("video").forEach(v => {
+  v.addEventListener("mouseenter", () => v.play());
+  v.addEventListener("mouseleave", () => v.pause());
 });
